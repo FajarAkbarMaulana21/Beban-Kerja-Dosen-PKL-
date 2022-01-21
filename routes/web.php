@@ -17,6 +17,4 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/beranda', function () {
-    return view('home');
-});
+route::get('/beranda', 'BerandaController@index');

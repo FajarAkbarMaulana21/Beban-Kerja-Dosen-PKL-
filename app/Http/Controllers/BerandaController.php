@@ -2,10 +2,18 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Middleware\Auth;
 use Illuminate\Http\Request;
+use App\Models\User;
+
 
 class BerandaController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -13,8 +21,14 @@ class BerandaController extends Controller
      */
     public function index()
     {
-        $var_nama = 'Imam Farisi';
-        return view('beranda', compact('var_nama'));
+        // compact('var_nama')
+        // $var_nama = 'Imam Farisi';
+        $user = \Auth::user()->level;
+        if($user == 'Admin'){
+            return view('pages.Admin.dashboard');
+        }elseif($user == 'Dosen'){
+            return view('pages.user.dashboard');
+        }
     }
 
     /**

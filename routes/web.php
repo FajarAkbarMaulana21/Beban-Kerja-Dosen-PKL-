@@ -14,7 +14,24 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth/login');
 });
 
-route::get('/beranda', 'BerandaController@index');
+Auth::routes();
+
+// route::group(['middleware' => )
+route::group(['middleware' => ['auth', 'CheckRole:Dosen']], function(){
+    route::get('/', 'BerandaController@index')->name('dashboard.user');
+    Route::resource('/kinerja-penunjang','KinerjaPenunjangController');
+    Route::resource('/profil','profilController');
+});
+
+route::group(['middleware' => ['auth', 'CheckRole:Admin']], function(){
+    route::get('/admin', 'BerandaController@index');
+    Route::resource('/admin/biodata','biodataController');
+    Route::resource('/admin/penunjang','PenunjangController');
+});
+
+
+
+

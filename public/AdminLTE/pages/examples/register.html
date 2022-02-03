@@ -6,19 +6,22 @@
   <title>AdminLTE 3 | Registration Page</title>
 
   <!-- Google Font: Source Sans Pro -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
-  <!-- icheck bootstrap -->
-  <link rel="stylesheet" href="../../plugins/icheck-bootstrap/icheck-bootstrap.min.css">
-  <!-- Theme style -->
-  <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
+  <link rel="stylesheet"
+  href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+<!-- Font Awesome -->
+<link rel="stylesheet" href="{{asset('AdminLTE/plugins/fontawesome-free/css/all.min.css')}}">
+<!-- icheck bootstrap -->
+<link rel="stylesheet" href="{{asset('AdminLTE/plugins/icheck-bootstrap/icheck-bootstrap.min.css')}}">
+<!-- Theme style -->
+<link rel="stylesheet" href="{{asset('AdminLTE/dist/css/adminlte.min.css')}}">
 </head>
-<body class="hold-transition register-page">
+
+<body class="hold-transition register-page pt-5">
 <div class="register-box">
-  <div class="register-logo">
-    <a href="../../index2.html"><b>Admin</b>LTE</a>
-  </div>
+  <div class="login-logo">
+    <div class="logo"><img src="{{asset('AdminLTE/image/logo.png')}}" style="width:50%;margin-top:500px;" alt=""></div>
+    <a><b>BEBAN KERJA DOSEN</b>
+</div>
 
   <div class="card">
     <div class="card-body register-card-body">
@@ -93,11 +96,11 @@
 </div>
 <!-- /.register-box -->
 
-<!-- jQuery -->
-<script src="../../plugins/jquery/jquery.min.js"></script>
-<!-- Bootstrap 4 -->
-<script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-<!-- AdminLTE App -->
-<script src="../../dist/js/adminlte.min.js"></script>
+ <!-- jQuery -->
+ <script src="{{asset('AdminLTE/plugins/jquery/jquery.min.js')}}"></script>
+ <!-- Bootstrap 4 -->
+ <script src="{{asset('AdminLTE/plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+ <!-- AdminLTE App -->
+ <script src="{{asset('AdminLTE/dist/js/adminlte.min.js')}}"></script>
 </body>
 </html>

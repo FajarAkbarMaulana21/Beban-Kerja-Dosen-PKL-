@@ -1,0 +1,9 @@
+1. warna objek tidak merata
+2. ada satu warna yang dominan
+
+warna hitam adalah dominan warna biasnya. jadi menggunakan histogram dapat dilihat apakah gambar itu asli atau tidak.
+
+jika warnanya merata biasanya itu dari mesin scan karena manusia tidak mungkin memfoto warnanya jadi merata atau pencahayaanya menjadi merata.
+
+fitur tekstur
+

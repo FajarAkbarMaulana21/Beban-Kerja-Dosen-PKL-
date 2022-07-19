@@ -4,19 +4,22 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use APP\Models\Subkegiatan;
+use App\Models\Subkegiatan;
+use App\Models\KinerjaPenunjang;
 
 class penunjang extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'kode_penunjang','nama_penunjang'
+        'id','kode_penunjang','nama_penunjang'
     ];
 
     public function penunjang(){
-        return $this->belongsTo(Subkegiatan::class);
+        return $this->hasMany(Subkegiatan::class, 'id');
     }
 
-
+    public function kinerja(){
+        return $this->hasOne(KinerjaPenunjang::class, 'id');
+    }
 }

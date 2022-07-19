@@ -24,48 +24,69 @@
                         <div class="card-header">
                             <h3 class="card-title mt-1">Kinerja Penunjang</h3>
                             <div class="btn-tmbh float-right">
-                                <a href="{{route('kinerja-penunjang.create')}}" class="btn btn-primary btn-sm"><i class="fas fa-plus"></i>Tambah</a>
+                                <a href="{{route('kinerja-penunjang.create')}}" class="btn btn-primary btn-sm"><i
+                                        class="fas fa-plus"></i>Tambah</a>
                             </div>
                         </div>
-
                         <!-- /.card-header -->
                         <div class="card-body">
                             <div id="example1_wrapper" class="dataTables_wrapper dt-bootstrap4">
                                 <div class="row">
                                     <div class="col-sm-12">
-                                        <table id="example1"
+                                        <table id="biodata"
                                             class="table table-bordered table-striped dataTable dtr-inline collapsed"
                                             role="grid" aria-describedby="example1_info">
                                             <thead>
                                                 <tr>
-                                                    <th>Kode</th>
-                                                    <th>Nama</th>
-                                                    {{-- <th>Aksi</th> --}}
+                                                    <th>No#</th>
+                                                    <th>Sub Unsur</th>
+                                                    <th>Nama Kegiatan</th>
+                                                    <th>Semester</th>
+                                                    <th>Tahun Akademik</th>
+                                                    <th>Tanggal Selesai</th>
+                                                    <th>Rekomendasi</th>
+                                                    <th>Aksi</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                    @forelse ($indx as $item)
-                                                    <tr>
-                                                        <td style="vertical-align:middle;text-align:center">{{$item->kode_penunjang}}</td>
-                                                        <td style="vertical-align:middle">{{$item->nama_penunjang}}</td>
-                                                        {{-- <td style="vertical-align:middle">
+                                                @forelse ($indx as $item)
+                                                <tr class="text-center">
+                                                    <td style="vertical-align:middle">{{$loop->iteration}}</td>
+                                                    <td style="vertical-align:middle;width:20%">
+                                                        {{$item->unsur->nama_penunjang}}</td>
+                                                    <td style="vertical-align:middle">{{$item->nama_kegiatan}}</td>
+                                                    <td style="vertical-align:middle;width:10%">
+                                                        {{$item->semester}}</td>
+                                                    <td style="vertical-align:middle;width:10%">
+                                                        {{$item->tahun_akademik}}</td>
+                                                    <td style="vertical-align:middle;width:10%">
+                                                        {{date('d-m-Y', STRTOTIME($item->tgl_selesai))}}</td>
+                                                    <td style="vertical-align:middle"><span
+                                                            class="btn btn-primary btn-sm">{{$item->rekomendasi}}</span>
+                                                    </td>
+                                                    <td style="vertical-align:middle">
 
-                                                            <a href="{{route('biodata.edit', $item->id)}}" class="btn btn-success btn-sm"><i class="fas fa-pen"></i></a>
-                                                            <a href="{{route('biodata.show', $item->id)}}" class="btn btn-secondary btn-sm"><i class="fas fa-eye"></i></a>
-                                                            <form action="{{route('biodata.destroy', $item->id)}}" method="POST" class="d-inline">
-                                                                @csrf
-                                                                @method('delete')
-                                                                <button class="btn btn-danger btn-sm" onclick="return confirm('Yakin Ingin Hapus Data?')">
-                                                                    <i class="fas fa-trash"></i>
-                                                                </button>
-                                                            </form>
-                                                        </td> --}}
-                                                    </tr>
+                                                        <a href="{{route('kinerja-penunjang.edit', $item->id)}}"
+                                                            class="btn btn-primary btn-sm"><i
+                                                                class="fas fa-pen"></i></a>
+                                                        <form action="{{route('kinerja-penunjang.destroy', $item->id)}}"
+                                                            method="POST" class="d-inline">
+                                                            @csrf
+                                                            @method('delete')
+                                                            <button class="btn btn-danger btn-sm"
+                                                                onclick="return confirm('Yakin Ingin Hapus Data?')">
+                                                                <i class="fas fa-trash"></i>
+                                                            </button>
+                                                        </form>
+                                                    </td>
+                                                </tr>
 
-                                            @empty
-                                                <tr><td colspan="7" class="text-center">Tidak Ada Data</td></tr>
-                                            @endforelse
-                                        </tbody>
+                                                @empty
+                                                <tr>
+                                                    <td colspan="7" class="text-center">Tidak Ada Data</td>
+                                                </tr>
+                                                @endforelse
+                                            </tbody>
                                         </table>
                                     </div>
                                 </div>

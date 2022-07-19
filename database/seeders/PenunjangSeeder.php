@@ -24,7 +24,7 @@ class PenunjangSeeder extends Seeder
 
         $penunjang2 = new penunjang;
         $penunjang2->kode_penunjang = "C";
-        $penunjang2->nama_penunjang = "Menjadi Anggota Organisasi Profesi";
+        $penunjang2->nama_penunjang = "Menjadi Anggota Organisasi Profesi Dosen";
 
         $penunjang3 = new penunjang;
         $penunjang3->kode_penunjang = "D";
@@ -51,11 +51,11 @@ class PenunjangSeeder extends Seeder
         $penunjang8->nama_penunjang = "Mempunyai Prestasi Dibidang Olahraga/Humaniora";
 
         $penunjang9 = new penunjang;
-        $penunjang9->kode_penunjang = "K";
+        $penunjang9->kode_penunjang = "J";
         $penunjang9->nama_penunjang = "Keanggotaan Dalam Organisasi Profesi Dosen";
 
         $penunjang10 = new penunjang;
-        $penunjang10->kode_penunjang = "L";
+        $penunjang10->kode_penunjang = "K";
         $penunjang10->nama_penunjang = "Keanggotaan Dalam Tim Penilaian";
 
         $penunjang->save();$penunjang1->save();$penunjang2->save();$penunjang3->save();$penunjang4->save();

@@ -33,6 +33,8 @@
  <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
  <script src="{{asset('AdminLTE/dist/js/pages/dashboard.js')}}"></script>
 
+ {{-- ckeditor --}}
+ {{-- <script src="https://cdn.ckeditor.com/ckeditor5/32.0.0/classic/ckeditor.js"></script> --}}
   <!-- DataTables  & Plugins -->
   <script src="{{asset('AdminLTE/plugins/datatables/jquery.dataTables.min.js')}}"></script>
   <script src="{{asset('AdminLTE/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js')}}"></script>
@@ -47,12 +49,10 @@
   <script src="{{asset('AdminLTE/plugins/datatables-buttons/js/buttons.print.min.js')}}"></script>
   <script src="{{asset('AdminLTE/plugins/datatables-buttons/js/buttons.colVis.min.js')}}"></script>
 
-  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
-  <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
   <!-- Page specific script -->
   <script>
       $(function() {
-          $("#example1").DataTable({
+          $("#biodata").DataTable({
               "responsive": true,
               "lengthChange": false,
               "autoWidth": false,
@@ -60,8 +60,12 @@
       });
   </script>
 
-<script>
-    $(function() {
-        $("#tgl_lahir").datepicker();
-    });
-</script>
+  {{-- ckeditor --}}
+  {{-- <script>
+    ClassicEditor
+        .create( document.querySelector( '#rincian' ) )
+        .catch( error => {
+            console.error( error );
+        } );
+    </script> --}}
+

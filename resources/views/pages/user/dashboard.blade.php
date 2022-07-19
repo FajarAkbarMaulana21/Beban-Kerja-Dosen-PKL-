@@ -6,70 +6,36 @@
    <div class="container-fluid">
        <div class="row mb-2">
            <div class="col-sm-6">
-               <h1 class="m-0">Dasbor</h1>
+               <h1 class="m-0">Beranda</h1>
            </div>
        </div>
+       <div class="welcome-message py-3">
+           <p class="alert alert-success" style="font-size:18px;font-family:arial">Selamat Datang di <b>Laman Beban Kerja Dosen (BKD)</b>
+        Universitas Muhammadiyah Banjarmasin</p>
+       </div>
+
        <!-- /.row -->
        <div class="row">
-        <div class="col-lg-3 col-6">
+        <div class="col-lg-4 col-4">
           <!-- small box -->
-          <div class="small-box bg-info">
-            <div class="inner">
-              <h3>150</h3>
-
-              <p>New Orders</p>
+          <a href="{{route('kinerja-penelitian.index')}}">
+            <div class="card text-center bg-light shadow">
+                <div class="card-image-top py-3 text-white"><i class="fas fa-file text-primary" style="font-size: 100px"></i></div>
+                <div class="card-footer"><strong style="font-size: 20px">Penelitian</strong></div>
             </div>
-            <div class="icon">
-              <i class="ion ion-bag"></i>
-            </div>
-            <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-          </div>
+            </a>
         </div>
+        <div class="col-lg-4 col-4">
+            <!-- small box -->
+            <a href="{{route('kinerja-penunjang.index')}}">
+              <div class="card text-center bg-light shadow">
+                  <div class="card-image-top py-3 text-white"><i class="fas fa-file text-secondary" style="font-size: 100px"></i></div>
+                  <div class="card-footer"><strong style="font-size: 20px">Penunjang</strong></div>
+              </div>
+              </a>
+          </div>
         <!-- ./col -->
-        <div class="col-lg-3 col-6">
-          <!-- small box -->
-          <div class="small-box bg-success">
-            <div class="inner">
-              <h3>53<sup style="font-size: 20px">%</sup></h3>
 
-              <p>Bounce Rate</p>
-            </div>
-            <div class="icon">
-              <i class="ion ion-stats-bars"></i>
-            </div>
-            <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-          </div>
-        </div>
-        <!-- ./col -->
-        <div class="col-lg-3 col-6">
-          <!-- small box -->
-          <div class="small-box bg-warning">
-            <div class="inner">
-              <h3>44</h3>
-
-              <p>User Registrations</p>
-            </div>
-            <div class="icon">
-              <i class="ion ion-person-add"></i>
-            </div>
-            <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-          </div>
-        </div>
-        <!-- ./col -->
-        <div class="col-lg-3 col-6">
-          <!-- small box -->
-          <div class="small-box bg-danger">
-            <div class="inner">
-              <h3>65</h3>
-
-              <p>Unique Visitors</p>
-            </div>
-            <div class="icon">
-              <i class="ion ion-pie-graph"></i>
-            </div>
-            <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-          </div>
-        </div>
         <!-- ./col -->
       </div>
    </div>

@@ -5,7 +5,7 @@
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1>Data Dosen</h1>
+                <h1>Biodata Dosen</h1>
             </div>
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
@@ -22,6 +22,19 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
+                            @if ($message = Session::get('success'))
+                            <div class="alert alert-success alert-block">
+                                <button type="button" class="close" data-dismiss="alert">×</button>
+                                <strong>{{ $message }}</strong>
+                            </div>
+                            @endif
+
+                            @if ($message = Session::get('error'))
+                                <div class="alert alert-danger alert-block">
+                                    <button type="button" class="close" data-dismiss="alert">×</button>
+                                    <strong>{{ $message }}</strong>
+                                </div>
+                            @endif
                             <h3 class="card-title mt-1">Biodata Dosen</h3>
                             <div class="btn-tmbh float-right">
                                 <a href="{{route('biodata.create')}}" class="btn btn-primary btn-sm"><i class="fas fa-plus"></i>Tambah</a>
@@ -33,7 +46,7 @@
                             <div id="example1_wrapper" class="dataTables_wrapper dt-bootstrap4">
                                 <div class="row">
                                     <div class="col-sm-12">
-                                        <table id="example1"
+                                        <table id="biodata"
                                             class="table table-bordered table-striped dataTable dtr-inline collapsed"
                                             role="grid" aria-describedby="example1_info">
                                             <thead>
@@ -95,4 +108,17 @@
 </section>
 
 </div>
+
+@push('before-script')
+<script>
+    $(function() {
+        $("#exemple1").DataTable({
+            "responsive": true,
+            "lengthChange": false,
+            "autoWidth": false,
+        });
+    });
+</script>
+@endpush
+
 @endsection

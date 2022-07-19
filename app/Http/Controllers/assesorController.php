@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\User;
+use App\Models\assesor;
 
-class loginController extends Controller
+class assesorController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +15,8 @@ class loginController extends Controller
      */
     public function index()
     {
-        return view('login');
+        $data = assesor::all();
+        return view('pages.admin.assesor.index', compact('data'));
     }
 
     /**
@@ -23,7 +26,7 @@ class loginController extends Controller
      */
     public function create()
     {
-        //
+        return view('pages.admin.assesor.create');
     }
 
     /**
@@ -34,7 +37,29 @@ class loginController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $pass = $request['password'];
+        $passhash = password_hash($pass, PASSWORD_DEFAULT);
+        $req = $request->all();
+
+        $id = mt_rand('1','1000');
+
+        $tmbhuser = User::create([
+            'id' => $id,
+            'name' => $req['nama'],
+            'username' => $req['username'],
+            'level' => $req['level'],
+            'email' => $req['email'],
+            'password' => $passhash
+        ]);
+
+        $req['id_user'] = $id;
+        $tmbah = assesor::create($req);
+
+        if($tmbah == true){
+            return redirect()->route('assesor.index');
+        }else{
+            return back()->withInput();
+        }
     }
 
     /**
@@ -45,7 +70,8 @@ class loginController extends Controller
      */
     public function show($id)
     {
-        //
+        $detail = assesor::findorfail($id);
+        return view('pages.admin.assesor.show', compact('detail'));
     }
 
     /**
@@ -79,6 +105,14 @@ class loginController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $delete = assesor::findorfail($id);
+        $id = $delete['id'];
+        $id_user = $delete['id_user'];
+
+        $iduser = User::where('id', $id_user)->get();
+
+        $delete->delete();
+        $iduser->each->delete();
+        return back()->with('success','Data Dosen Berhasil Dihapus');
     }
 }

@@ -16,13 +16,14 @@ class CreateKinerjaPenunjangsTable extends Migration
         Schema::create('kinerja_penunjangs', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->foreignId('id_dosen')->references('id')->on('dosens');
-            $table->string('jenis_kegiatan');
             $table->foreignId('id_subkegiatan')->references('id')->on('subkegiatans');
-            $table->string('bukti_penugasan');
-            $table->integer('sks_beban_kerja');
-            $table->string('masa_penugasan');
-            $table->string('bukti_dokumen');
-            $table->integer('sks_kinerja');
+            $table->string('nama_kegiatan');
+            $table->string('filenames');
+            $table->double('sks_beban_kerja');
+            $table->string('semester');
+            $table->string('tahun_akademik');
+            $table->date('tgl_mulai');
+            $table->date('tgl_selesai');
             $table->string('rekomendasi');
             $table->timestamps();
         });

@@ -34,7 +34,7 @@
                     @csrf
                     <div class="input-group mb-3">
                         <input type="email" class="form-control @error('email') is-invalid @enderror" name="email"
-                            value="{{ old('email') }}" required autocomplete="email" autofocus placeholder="Email">
+                            value="{{ old('email') }}" required autocomplete="off" autofocus placeholder="Email">
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-envelope"></span>
@@ -65,7 +65,7 @@
                             <div class="icheck-primary">
                                 <input type="checkbox" id="remember" {{ old('remember') ? 'checked' : '' }}>
                                 <label for="remember">
-                                    Remember Me
+                                    Ingat Saya
                                 </label>
                             </div>
                         </div>
@@ -79,7 +79,7 @@
                 <p class="mb-1">
                     @if (Route::has('password.request'))
                     <a class="btn btn-link" href="{{ route('password.request') }}">
-                        Lupa Kata Sandi?
+                    Lupa Kata Sandi?
                     </a>
                     @endif
                 </p>

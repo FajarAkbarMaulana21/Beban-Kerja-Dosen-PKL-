@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use App\Http\Middleware\Auth;
 use Illuminate\Http\Request;
 use App\Models\User;
-
+use App\models\KinerjaPenelitian;
+use App\models\KinerjaPenunjang;
+use App\models\dosen;
 
 class BerandaController extends Controller
 {
@@ -25,9 +27,15 @@ class BerandaController extends Controller
         // $var_nama = 'Imam Farisi';
         $user = \Auth::user()->level;
         if($user == 'Admin'){
-            return view('pages.Admin.dashboard');
+            $sum = KinerjaPenelitian::all();$sum = $sum->count();
+            $sum1 = KinerjaPenunjang::all();$sum1 = $sum1->count();
+            $sum2 = dosen::all();$sum2 = $sum2->count();
+
+            return view('pages.Admin.dashboard', compact('sum','sum1','sum2'));
         }elseif($user == 'Dosen'){
             return view('pages.user.dashboard');
+        }elseif($user == 'Assesor'){
+            return view('pages.assesor.dashboard');
         }
     }
 

@@ -78,7 +78,7 @@
 
             <div class="form-group row">
                 <div class="col-md-6">
-                <label for="tempat">Tempat</label>
+                <label for="tempat">Tempat Lahir</label>
                 <input type="text" name="tempat" value="{{ old('tempat') ? old('tempat') : $edit->tempat}}" class="form-control" id="tempat" required>
               </div>
               <div class="col-md-6">
@@ -119,7 +119,7 @@
               </div>
             </div>
             <div class="card-footer text-center">
-              <button type="submit" class="btn btn-primary">Edit</button>
+              <button type="submit" class="btn btn-primary">Simpan</button>
             </div>
           </form>
         </div>

@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\User;
 use App\Models\kinerjaPenunjang;
-
+use App\Models\KinerjaPenelitian;
 class dosen extends Model
 {
     use HasFactory;
@@ -25,6 +25,10 @@ class dosen extends Model
     }
 
     public function kinerja_penunjang(){
-        return $this->belongsTo(kinerjaPenunjang::class);
+        return $this->hasMany(kinerjaPenunjang::class, 'id');
+    }
+
+    public function kinerja_penelitian(){
+        return $this->hasMany(KinerjaPenelitian::class, 'id');
     }
 }

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\dosen;
+use App\Models\KinerjaPenelitian;
+use App\Models\KinerjaPenunjang;
 use App\Models\User;
 use Illuminate\Support\Facades\Redirect;
 use Carbon\Carbon;
@@ -53,7 +55,7 @@ class biodataController extends Controller
         $tmbhuser = User::create([
             'id' => $id,
             'name' => $req['nama_depan'],
-            'username' => $req['nama_depan'],
+            'username' => $req['username'],
             'level' => $req['level'],
             'email' => $req['email'],
             'password' => $passhash
@@ -65,7 +67,7 @@ class biodataController extends Controller
         $req['id_user'] = $id;
         $tmbah = dosen::create($req);
 
-        if($tmbah == true AND $tmbhuser){
+        if($tmbah == true){
             return redirect()->route('biodata.index');
         }else{
             return back()->withInput();
@@ -152,10 +154,23 @@ class biodataController extends Controller
      */
     public function destroy($id)
     {
-        $delete = dosen::findorfail($id);
-        $delete->delete
+        // $iddosen = dosen::where('id', $id)->first();
+        $iddosen = dosen::findorfail($id);
+        $id = $iddosen['id'];
+        $id_user = $iddosen['id_user'];
+        $datapen = KinerjaPenelitian::where('id_dosen',$id)->first();
+        $datapenun = KinerjaPenunjang::where('id_dosen', $id)->first();
 
-        ();
-        return back();
+        $iduser = User::where('id', $id_user)->get();
+
+        if(!$datapen AND !$datapenun){
+            $iddosen->delete();
+            $iduser->each->delete();
+            return back()->with('success','Data Dosen Berhasil Dihapus');
+        }else{
+            return back()->with('error','Tidak Dapat Menghapus,  Masih Terdapat Berkas di Penelitian & Penunjang');
+        }
+
+        // return back();
     }
 }

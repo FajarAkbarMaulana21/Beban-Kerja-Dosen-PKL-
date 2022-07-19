@@ -109,10 +109,10 @@ class profilController extends Controller
                     return back()->withInput();
                 }
         }else{
-                $req['foto'] = $request->file('foto')->store(
+                $upt['foto'] = $request->file('foto')->store(
                     'assets/foto','public'
                 );
-                $data->update($req);
+                $data->update($upt);
                 if($data == true){
                     return redirect()->route('profil.index');
                 }else{

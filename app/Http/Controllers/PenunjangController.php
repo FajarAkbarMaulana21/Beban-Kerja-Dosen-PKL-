@@ -4,8 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\kinerjaPenunjang;
-// use App\Models\penunjang;
-use App\Models\Subkegiatan;
+use App\Models\penunjang;
 
 class PenunjangController extends Controller
 {
@@ -16,7 +15,7 @@ class PenunjangController extends Controller
      */
     public function index()
     {
-        $indx = Subkegiatan::all();
+        $indx = kinerjaPenunjang::with('unsur','dosen')->orderByDesc('id')->get();
         return view('pages\admin\penunjang\index', compact('indx'));
     }
 
@@ -50,7 +49,10 @@ class PenunjangController extends Controller
      */
     public function show($id)
     {
-        //
+        $data = kinerjaPenunjang::where('id', $id)
+        ->with('dosen', 'unsur')->first();
+
+        return view('pages.admin.penunjang.show', compact('data'));
     }
 
     /**
@@ -84,6 +86,22 @@ class PenunjangController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $delete = kinerjaPenunjang::findorfail($id);
+        $delete->delete();
+
+        return back();
+    }
+
+    public function sendToAssesor($id){
+
+        $findid = kinerjaPenunjang::findorfail($id);
+
+        $rekomendasi = 'Diteruskan';
+
+        $findid->update([
+            'rekomendasi' => $rekomendasi,
+        ]);
+
+        return back();
     }
 }

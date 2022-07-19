@@ -1,0 +1,10 @@
+use case adalah sebuah skenario atau alur apa saja yang dapat
+digunakan/dilakukan website itu sendiri.
+
+Use case diagram adalah satu dari berbagai jenis diagram UML (Unified Modelling Language) 
+yang menggambarkan hubungan interaksi antara sistem dan aktor. 
+Use Case dapat mendeskripsikan tipe interaksi antara si pengguna sistem dengan sistemnya. 
+
+activity diagram, Runtutan proses dari suatu sistem digambarkan secara vertikal. 
+Activity diagram merupakan pengembangan dari Use Case yang memiliki alur aktivitas.
+penjelasan kejelasan dari use case diagram itu sendiri.
